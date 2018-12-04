@@ -1,0 +1,36 @@
+﻿@model LoginVM
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main role="main">
+    <h2>Login</h2>
+    <form method="post" action="@Url.Action("Login","Auth")">
+
+        <div class="form-row">
+            <div>
+                @Html.LabelFor(i => i.Username)             
+                @Html.TextBoxFor(i => i.Username, new { @class = "form-control", placeholder = "Username" })
+                @Html.ValidationMessageFor(i => i.Username)
+            </div>
+        </div>
+        <div class="form-row">
+            <div>
+                @Html.LabelFor(i => i.Password)
+                @Html.PasswordFor(i => i.Password, new { @class = "form-control", placeholder = "Password" })
+                @Html.ValidationMessageFor(i => i.Password)
+            </div>
+        </div>
+        <div class="form-row">
+            <div>
+                @Html.LabelFor(i => i.RememberMe)
+                @Html.CheckBoxFor(i => i.RememberMe, new { @class = "form-check-inline", placeholder = "RememberMe" })
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+        <button type="button" class="btn btn-primary" onclick="@("window.location.href='" + Url.Action("Index", "Home") + "'")">Cancel</button>
+    </form>
+</main>
+

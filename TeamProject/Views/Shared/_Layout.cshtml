@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/www/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav>
+        @Html.Partial("_LoginPartial")
+    </nav>
+    @RenderBody()
+    <div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="~/www/assets/js/popper.min.js"></script>
+    <script src="~/www/dist/js/bootstrap.min.js"></script>
+    <script src="~/www/dist/js/jquery.validate.js"></script>
+    <script src="~/www/dist/js/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>
