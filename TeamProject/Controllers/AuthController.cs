@@ -45,6 +45,37 @@ namespace TeamProject.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult SignUp()      
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else
+            {
+                return null;
+            }
+        }
 
-    }
+        [HttpPost]
+        public ActionResult SignUpSubmit(SignUpVM user)
+        {
+            bool userAdded = false;
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            if (userAdded)
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+            else
+            {
+                return View("Register", user);
+            }
+
+        }
+
+
+        }
 }

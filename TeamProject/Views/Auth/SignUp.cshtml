@@ -1,8 +1,52 @@
-﻿
+﻿@model SignUpVM
 @{
     ViewBag.Title = "Sign Up";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SignUp</h2>
+<main role="main">
+    <h2>Sign-up of New User</h2>
+    <form method="post" action="@Url.Action("SignUpSubmit","Auth")">
+        <div class="form-row">
+            <div>
+                @Html.LabelFor(i => i.Username)
+                @Html.TextBoxFor(i => i.Username, new { @class = "form-control", placeholder = "Username" })
+                @Html.ValidationMessageFor(i => i.Username)
+            </div>
+        </div>
+        <div class="form-row">
+            <div>
+                @Html.LabelFor(i => i.Password)
+                @Html.PasswordFor(i => i.Password, new { @class = "form-control", placeholder = "Password" })
+                @Html.ValidationMessageFor(i => i.Password)
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div>
+                @Html.LabelFor(i => i.ConfirmPassword)
+                @Html.PasswordFor(i => i.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm Password" })
+                @Html.ValidationMessageFor(i => i.ConfirmPassword)
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div>
+                @Html.LabelFor(i => i.Name)
+                @Html.TextBoxFor(i => i.Name, new { @class = "form-control", placeholder = "Name" })
+                @Html.ValidationMessageFor(i => i.Name)
+            </div>
+        </div>
+        <div class="form-row">
+            <div>
+                @Html.LabelFor(i => i.Surname)
+                @Html.TextBoxFor(i => i.Surname, new { @class = "form-control", placeholder = "Name" })
+                @Html.ValidationMessageFor(i => i.Surname)
+            </div>
+        </div>
+        <span>@ViewBag.MessageExistingUser</span>
+        <button class="btn btn-primary" type="submit">Register</button>
+        <button type="button" class="btn btn-primary" onclick="@("window.location.href='" + Url.Action("Index", "Home") + "'")">Cancel</button>
+    </form>
+</main>
 
